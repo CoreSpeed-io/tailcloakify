@@ -35,7 +35,7 @@ export default function UserProfileFormFields(props: UserProfileFormFieldsProps<
 
     return (
         <>
-            {formFieldStates.map(({ attribute, displayableErrors, valueOrValues }) => {
+            {formFieldStates.filter(field => field.attribute.name !== "locale").map(({ attribute, displayableErrors, valueOrValues }) => {
                 return (
                     <Fragment key={attribute.name}>
                         <GroupLabel attribute={attribute} groupNameRef={groupNameRef} i18n={i18n} kcClsx={kcClsx} />

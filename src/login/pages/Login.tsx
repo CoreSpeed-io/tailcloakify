@@ -16,7 +16,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
         classes
     });
 
-    const { social, realm, url, usernameHidden, login, auth, registrationDisabled, messagesPerField } = kcContext;
+    const { social, realm, url, usernameHidden, login, auth, registrationDisabled, messagesPerField, captchaRequired, captchaSiteKey, captchaAction, captchaLanguage } = kcContext;
 
     const { msg, msgStr } = i18n;
 
@@ -216,7 +216,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                     )}
                                 </div>
                             </div>
-
+                            {captchaRequired && (
+                                <div className="form-group">
+                                    <div className={kcClsx("kcInputWrapperClass")}>
+                                        <div className="cf-turnstile" data-sitekey={captchaSiteKey} data-action={captchaAction} data-language={captchaLanguage}></div>
+                                    </div>
+                                </div>
+                            )}
                             <div id="kc-form-buttons" className={clsx(kcClsx("kcFormGroupClass"), "flex flex-col pt-4 space-y-2")}>
                                 <input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
                                 <input

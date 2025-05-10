@@ -21,7 +21,7 @@ export default function Register(props: RegisterProps) {
         classes
     });
 
-    const { messageHeader, url, messagesPerField, recaptchaRequired, recaptchaVisible, recaptchaSiteKey, recaptchaAction, termsAcceptanceRequired } =
+    const { messageHeader, url, messagesPerField, recaptchaRequired, recaptchaVisible, recaptchaSiteKey, recaptchaAction, termsAcceptanceRequired, captchaRequired, captchaSiteKey, captchaAction, captchaLanguage } =
         kcContext;
 
     const { msg, msgStr, advancedMsg } = i18n;
@@ -60,6 +60,13 @@ export default function Register(props: RegisterProps) {
                     <div className="form-group">
                         <div className={kcClsx("kcInputWrapperClass")}>
                             <div className="g-recaptcha" data-size="compact" data-sitekey={recaptchaSiteKey} data-action={recaptchaAction}></div>
+                        </div>
+                    </div>
+                )}
+                {captchaRequired && (
+                    <div className="form-group">
+                        <div className={kcClsx("kcInputWrapperClass")}>
+                            <div className="cf-turnstile" data-sitekey={captchaSiteKey} data-action={captchaAction} data-language={captchaLanguage}></div>
                         </div>
                     </div>
                 )}

@@ -23,7 +23,7 @@ export default function LoginResetPassword(
         classes
     });
 
-    const { url, realm, auth, messagesPerField } = kcContext;
+    const { url, realm, auth, messagesPerField, captchaRequired, captchaSiteKey, captchaAction, captchaLanguage } = kcContext;
 
     const { msg, msgStr } = i18n;
 
@@ -81,6 +81,13 @@ export default function LoginResetPassword(
                         )}
                     </div>
                 </div>
+                {captchaRequired && (
+                    <div className="form-group">
+                        <div className={kcClsx("kcInputWrapperClass")}>
+                            <div className="cf-turnstile" data-sitekey={captchaSiteKey} data-action={captchaAction} data-language={captchaLanguage}></div>
+                        </div>
+                    </div>
+                )}
                 <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
                     <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
                         <div className={kcClsx("kcFormOptionsWrapperClass")}>

@@ -7,6 +7,10 @@ export type KcContextExtension = {
     properties: Record<KcEnvName, string> & {};
     // NOTE: Here you can declare more properties to extend the KcContext
     // See: https://docs.keycloakify.dev/faq-and-help/some-values-you-need-are-missing-from-in-kccontext
+    captchaRequired: boolean;
+    captchaSiteKey: string;
+    captchaAction: string;
+    captchaLanguage: string;
 };
 
 export type KcContextExtensionPerPage = {

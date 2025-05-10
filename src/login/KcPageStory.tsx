@@ -9,7 +9,11 @@ const kcContextExtension: KcContextExtension = {
     themeName: themeNames[0],
     properties: {
         ...kcEnvDefaults
-    }
+    },
+    captchaRequired: true,
+    captchaSiteKey: "3x00000000000000000000FF",
+    captchaAction: "login",
+    captchaLanguage: "en"
 };
 
 const kcContextExtensionPerPage: KcContextExtensionPerPage = {
